@@ -50,7 +50,7 @@ steps:
     and
     (
       succeeded(),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
+      eq(variables['Build.SourceBranch'], 'refs/heads/master')
     )
 
 - task: DotNetCoreCLI@2
@@ -85,7 +85,7 @@ steps:
     and
     (
       succeeded(),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
+      eq(variables['Build.SourceBranch'], 'refs/heads/master')
     )
  
 - task: SonarCloudPublish@1
@@ -94,7 +94,7 @@ steps:
     and
     (
       succeeded(),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
+      eq(variables['Build.SourceBranch'], 'refs/heads/master')
     )
 
 - task: PublishCodeCoverageResults@1
